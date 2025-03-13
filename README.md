@@ -1,3 +1,5 @@
+reference site:https://scm_mos.gitlab.io/motion-planner/a-star/
+
 要在 ROS 中运行 astar_example.cpp，你需要创建一个 ROS 包，并将你的代码添加到该包中。 以下是详细步骤：
 
 1. 创建 ROS 包：
