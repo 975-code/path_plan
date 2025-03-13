@@ -4,17 +4,17 @@
 
 假设你想把你的 A* 算法放在一个名为 astar_ros 的包中。 使用 catkin_create_pkg 命令创建它。 你需要指定该包的依赖项，例如 roscpp（用于 C++ ROS 节点）、rospy（如果你也想用 Python）、std_msgs（如果需要标准消息类型）等。
 
-cd /home/idriver/wqk/10_test/catkin_ws/src  # 确保你在你的 catkin 工作空间的 src 目录下
+cd catkin_ws/src  # 确保你在你的 catkin 工作空间的 src 目录下
 catkin_create_pkg astar_ros roscpp rospy std_msgs
 
 2. 将 astar_example.cpp 复制到 src 目录：
 
 将你的 astar_example.cpp 文件复制到刚刚创建的 astar_ros 包的 src 目录下：
 
-cp /path/to/your/astar_example.cpp /home/idriver/wqk/10_test/catkin_ws/src/astar_ros/src/
+cp /path/to/your/astar_example.cpp catkin_ws/src/astar_ros/src/
 3. 修改 CMakeLists.txt：
 
-你需要编辑 astar_ros 包的 CMakeLists.txt 文件，以便 CMake 知道如何编译你的代码。 打开 /home/idriver/wqk/10_test/catkin_ws/src/astar_ros/CMakeLists.txt 文件，并进行以下修改：
+你需要编辑 astar_ros 包的 CMakeLists.txt 文件，以便 CMake 知道如何编译你的代码。 打开 catkin_ws/src/astar_ros/CMakeLists.txt 文件，并进行以下修改：
 
 取消注释 add_executable 和 target_link_libraries 行，并进行相应修改： 找到与可执行文件相关的部分，并取消注释。 修改 add_executable 以反映你的源文件名，并修改 target_link_libraries 以链接所需的库。
  ```cmake
@@ -49,9 +49,9 @@ cp /path/to/your/astar_example.cpp /home/idriver/wqk/10_test/catkin_ws/src/astar
 </package>
 5. 编译你的 ROS 包：
 
-返回到你的 catkin 工作空间的根目录 (/home/idriver/wqk/10_test/catkin_ws)，并使用 catkin_make 编译你的包：
+返回到你的 catkin 工作空间的根目录 (/catkin_ws)，并使用 catkin_make 编译你的包：
 
-cd /home/idriver/wqk/10_test/catkin_ws
+cd catkin_ws
 catkin_make
 如果编译成功，你的可执行文件 astar_node 将位于 devel/lib/astar_ros/ 目录下。
 
